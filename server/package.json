@@ -1,0 +1,49 @@
+{
+  "name": "stakenet-wallet-streamer",
+  "version": "1.0.0",
+  "description": "Stakenet explorer API",
+  "author": "Arestout",
+  "license": "ISC",
+  "scripts": {
+    "start": "npm run build && node dist/server.js",
+    "start:dev": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up",
+    "start:dev:build": "docker-compose -f docker-compose.yml -f docker-compose.development.yml up --build",
+    "dev": "nodemon",
+    "build": "tsc",
+    "test": "jest --forceExit --detectOpenHandles --watchAll",
+    "lint": "eslint --ignore-path .gitignore --ext .ts src/",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "dependencies": {
+    "amqplib": "^0.8.0",
+    "envalid": "^6.0.2",
+    "eslint-plugin-jest": "^24.3.6",
+    "morgan": "^1.10.0",
+    "rascal": "^13.0.0",
+    "request": "^2.88.2",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/morgan": "^1.9.2",
+    "@types/node": "^14.14.21",
+    "@types/rascal": "^10.0.3",
+    "@types/request": "^2.48.5",
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
+    "eslint": "^7.17.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-security": "^1.4.0",
+    "husky": "^4.3.7",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.5.6",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

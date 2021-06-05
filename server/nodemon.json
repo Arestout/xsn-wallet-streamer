@@ -1,0 +1,7 @@
+{
+  "verbose": true,
+  "watch": ["src", ".env"],
+  "ext": "js,ts,json",
+  "ignore": ["src/**/*.spec.ts", "src/**/*.test.ts", "src/logs/**/*", "/node_modules/"],
+  "exec": "node --inspect=0.0.0.0:9229 --require ts-node/register/transpile-only src/server.ts"
+}

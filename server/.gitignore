@@ -1,0 +1,6 @@
+node_modules
+dist
+src/logs
+src/test.mjs
+.vscode
+coverage

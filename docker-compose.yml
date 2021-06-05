@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: stakenet-streamer-server
+    environment:
+      - NODE_ENV=production
+      - RABBITMQ_HOST=${RABBITMQ_HOST}
+    restart: unless-stopped
+    depends_on:
+      - wallet
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 50M
+
+  wallet:
+    build:
+      context: ./wallet
+      dockerfile: Dockerfile
+    container_name: stakenet-streamer-wallet
+    restart: unless-stopped
+    volumes:
+      - wallet-data:/root/.xsncore
+    deploy:
+      resources:
+        limits:
+          cpus: '0.85'
+          memory: 1500M
+
+volumes:
+  wallet-data:
