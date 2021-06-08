@@ -6,9 +6,18 @@ import { rabbitMqProducer } from './libs/rabbitmq/rabbitmq.producer';
 import { BlockProcessor } from './libs/wallet/blockProcessor/blockProcessor';
 import { logger } from './utils/logger';
 import { BrokerAsPromised } from 'rascal';
+import { connect } from './database';
 
 checkNodeVersion();
 validateEnv();
+
+connect()
+  .then(() => {
+    logger.info('🟢 The database is connected.');
+  })
+  .catch((error: Error) => {
+    logger.error(`🔴 Unable to connect to the database: ${error}.`);
+  });
 
 const rpcClient = new RpcClient(WALLET);
 const blockProcessor = new BlockProcessor(rabbitMqProducer, rpcClient);

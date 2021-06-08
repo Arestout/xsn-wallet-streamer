@@ -18,6 +18,7 @@
     "amqplib": "^0.8.0",
     "envalid": "^6.0.2",
     "eslint-plugin-jest": "^24.3.6",
+    "mongodb": "^3.6.9",
     "morgan": "^1.10.0",
     "rascal": "^13.0.0",
     "request": "^2.88.2",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
+    "@types/mongodb": "^3.6.17",
     "@types/morgan": "^1.9.2",
     "@types/node": "^14.14.21",
     "@types/rascal": "^10.0.3",
